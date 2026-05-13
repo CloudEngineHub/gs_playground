@@ -21,8 +21,6 @@
 
 GS-Playground is a high-throughput photorealistic simulation framework for vision-informed robot learning. It couples a parallel robot physics engine with batch 3D Gaussian Splatting (3DGS) rendering, enabling large-scale visual reinforcement learning with real-world appearance, rigid-link visual synchronization, and sim-ready assets.
 
-This repository is currently an early public preview. It contains a minimal batch rendering benchmark and two minimal demos. The full simulator, assets, datasets, training code, and evaluation suite will be released in stages.
-
 ## ✨ Highlights
 
 - **Photorealistic visual simulation:** Batch 3DGS rendering for RGB and depth observations in robot learning loops.
