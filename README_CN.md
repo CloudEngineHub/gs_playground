@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <strong>🎉 已被 RSS 2026 接收 🎉</strong>
+  <strong><span style="font-size: 1.5em;">🎉 已被 RSS 2026 接收 🎉</span></strong>
 </p>
 
 <p align="center">
@@ -23,10 +23,6 @@ GS-Playground 是面向视觉机器人学习的高吞吐、高保真仿真框架
 
 当前仓库是早期公开预览版本，只包含一个最小 batch rendering benchmark 和两个最小 demo。完整 simulator、资产、数据集、训练代码和论文实验复现脚本会分阶段发布。
 
-## 📰 新闻
-
-- **2026-04-28:** GS-Playground 已被 **RSS 2026** 接收。
-
 ## ✨ 亮点
 
 - **高保真视觉仿真：** 使用批量 3DGS 渲染为机器人学习环路提供 RGB 和 depth 观测。
@@ -36,15 +32,17 @@ GS-Playground 是面向视觉机器人学习的高吞吐、高保真仿真框架
 - **Real2Sim 资产流程：** 从真实采集生成照片级、物理一致、内存高效的仿真资产。
 - **多构型机器人覆盖：** 论文实验覆盖 locomotion、navigation 和 manipulation，包括四足、人形和机械臂。
 
-## 📦 当前 Release
+## 🗺️ Release 计划
 
-当前仓库保持轻量，主要用于提前开放渲染接口、demo 资产和最小示例：
+论文系统比当前预览仓库更完整，后续计划发布：
 
-- [x] `benchmark/`：最小 batch rendering notebook 和辅助脚本。
-- [x] `demo/live_demo/`：最小 replay demo，包含 Franka/Robotiq 本地资产和 replay 数据。
-- [x] `demo/navigation/`：最小机器人导航 demo，包含 Go1、Go2、G1 策略资产。
-
-大规模训练流水线、完整 benchmark、生成式 3DGS 资产集合、Real2Sim 工具和论文实验配置尚未包含在当前预览版本中。
+- [x] 核心 simulator API：支持 [batched robot simulation](#live-replay-demo)、[同步 3DGS 观测](#navigation-demo)、RGB/depth camera、contact，以及 [MJCF 兼容资产](https://github.com/Motphys/motrixsim-docs/tree/main/examples/assets)。
+- [x] Batch 3DGS renderer kernel、剪枝工具、内存高效资产加载和多场景 batch 示例，[GaussianRenderer](https://github.com/discoverse-dev/GaussianRenderer)。
+- [x] RSS 2026 论文中的 [rendering throughput](#batch-rendering-benchmark)、[physics stability](https://github.com/Motphys/phys-bench)、[locomotion experiments](https://github.com/Motphys/MotrixLab) benchmark suite。
+- [x] [batch LiDAR 示例](https://github.com/discoverse-dev/MuJoCo-LiDAR)传感器模块（mesh temporary）。
+- [ ] Real2Sim 工具：场景/物体分割、inpainting、3DGS/mesh 重建、位姿对齐、碰撞同步和资产打包。
+- [ ] 面向视觉中心导航和操作的 PPO 与视觉策略训练脚本。
+- [ ] Hugging Face 发布：压缩 3DGS 资产、示例场景、机器人资产、训练策略和评测轨迹。
 
 ## 🧰 环境需求
 
@@ -103,18 +101,6 @@ uv run python -m ipykernel install \
   --name gsplayground \
   --display-name "gsplayground"
 ```
-
-## 🗺️ Release 计划
-
-论文系统比当前预览仓库更完整，后续计划发布：
-
-- [ ] 核心 simulator API：batched robot simulation、同步 3DGS 观测、RGB/depth camera、contact 和 MJCF 兼容资产接口。
-- [ ] Batch 3DGS renderer：优化渲染 kernel、剪枝工具、内存高效资产加载、多场景 batch 示例。
-- [ ] Real2Sim 工具：场景/物体分割、inpainting、3DGS/mesh 重建、位姿对齐、碰撞同步和资产打包。
-- [ ] 传感器模块：depth、contact 和 batch LiDAR 示例。
-- [ ] 训练代码：locomotion、视觉导航、manipulation 的 PPO 和视觉策略训练脚本。
-- [ ] Benchmark suite：RSS 2026 论文中的 visual fidelity、rendering throughput、physics stability、locomotion、navigation 和 manipulation 复现实验。
-- [ ] Hugging Face 发布：压缩 3DGS 资产、示例场景、机器人资产、训练策略和评测轨迹。
 
 ## 🔗 相关项目
 

@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <strong>🎉 Accepted to RSS 2026 🎉</strong>
+  <strong><span style="font-size: 1.5em;">🎉 Accepted to RSS 2026 🎉</span></strong>
 </p>
 
 <p align="center">
@@ -23,10 +23,6 @@ GS-Playground is a high-throughput photorealistic simulation framework for visio
 
 This repository is currently an early public preview. It contains a minimal batch rendering benchmark and two minimal demos. The full simulator, assets, datasets, training code, and evaluation suite will be released in stages.
 
-## 📰 News
-
-- **2026-04-28:** GS-Playground was accepted to **RSS 2026**.
-
 ## ✨ Highlights
 
 - **Photorealistic visual simulation:** Batch 3DGS rendering for RGB and depth observations in robot learning loops.
@@ -36,15 +32,18 @@ This repository is currently an early public preview. It contains a minimal batc
 - **Real2Sim asset workflow:** A pipeline for reconstructing photorealistic, physically consistent, memory-efficient scenes from real captures.
 - **Multi-embodiment scope:** Experiments cover locomotion, navigation, and manipulation, including quadrupeds, humanoids, and robot arms.
 
-## 📦 Current Release
+## 🗺️ Release Plan
 
-The current repository is intentionally small and intended for early reproduction of the rendering interface and example assets:
+The paper system is larger than this preview repository. Planned releases:
 
-- [x] `benchmark/`: minimal batch rendering notebook and helper scripts.
-- [x] `demo/live_demo/`: minimal replay demo with local Franka/Robotiq assets and replay data.
-- [x] `demo/navigation/`: minimal robot navigation demo with Go1, Go2, and G1 policy assets.
+- [x] Core simulator API for [batched robot simulation](#live-replay-demo), [synchronized 3DGS observations](#navigation-demo), RGB/depth cameras, contacts, and [MJCF-compatible assets](https://github.com/Motphys/motrixsim-docs/tree/main/examples/assets).
+- [x] Batch 3DGS renderer kernels, pruning utilities, memory-efficient asset loading, and multi-scene batching examples, [GaussianRenderer](https://github.com/discoverse-dev/GaussianRenderer) .
+- [x] Benchmark suite for [rendering throughput](#batch-rendering-benchmark), [physics stability](https://github.com/Motphys/phys-bench), [locomotion experiments](https://github.com/Motphys/MotrixLab) from the RSS 2026 paper.
+- [x] Sensor modules for [batch LiDAR examples](https://github.com/discoverse-dev/MuJoCo-LiDAR) (mesh temporary).
+- [ ] Real2Sim tools for scene/object segmentation, inpainting, 3DGS/mesh reconstruction, pose alignment, collision synchronization, and asset packaging.
+- [ ] PPO and visual policy training scripts for vision-centric navigation and manipulation.
+- [ ] Hugging Face release with compressed 3DGS assets, example scenes, robot assets, trained policies, and evaluation traces.
 
-Large-scale training pipelines, full benchmark suites, generated 3DGS asset collections, Real2Sim tools, and paper experiment configurations are not included in this preview release yet.
 
 ## 🧰 Environment Requirements
 
@@ -103,18 +102,6 @@ uv run python -m ipykernel install \
   --name gsplayground \
   --display-name "gsplayground"
 ```
-
-## 🗺️ Release Plan
-
-The paper system is larger than this preview repository. Planned releases:
-
-- [ ] Core simulator API for batched robot simulation, synchronized 3DGS observations, RGB/depth cameras, contacts, and MJCF-compatible assets.
-- [ ] Batch 3DGS renderer kernels, pruning utilities, memory-efficient asset loading, and multi-scene batching examples.
-- [ ] Real2Sim tools for scene/object segmentation, inpainting, 3DGS/mesh reconstruction, pose alignment, collision synchronization, and asset packaging.
-- [ ] Sensor modules for depth, contact, and batch LiDAR examples.
-- [ ] PPO and visual policy training scripts for locomotion, vision-centric navigation, and manipulation.
-- [ ] Benchmark suite for visual fidelity, rendering throughput, physics stability, locomotion, navigation, and manipulation experiments from the RSS 2026 paper.
-- [ ] Hugging Face release with compressed 3DGS assets, example scenes, robot assets, trained policies, and evaluation traces.
 
 ## 🔗 Related Projects
 
