@@ -134,3 +134,15 @@ GS-Playground 建立在我们生态中的多个组件和前序系统之上。它
       url={https://arxiv.org/abs/2604.25459}
 }
 ```
+
+GS-Playground 的物理引擎组件引用如下：
+
+```bibtex
+@software{motrixsim2026,
+      title  = {MotrixSim: A Physics Simulation Engine for Robotics and Embodied AI},
+      author = {{Motphys Team}},
+      year   = {2026},
+      url    = {https://motrixsim.readthedocs.io/},
+      note   = {Python binary package}
+}
+```

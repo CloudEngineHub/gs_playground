@@ -135,3 +135,15 @@ GS-Playground builds on several components and prior systems from our ecosystem.
       url={https://arxiv.org/abs/2604.25459}
 }
 ```
+
+For the GS-Playground physics engine component:
+
+```bibtex
+@software{motrixsim2026,
+      title  = {MotrixSim: A Physics Simulation Engine for Robotics and Embodied AI},
+      author = {{Motphys Team}},
+      year   = {2026},
+      url    = {https://motrixsim.readthedocs.io/},
+      note   = {Python binary package}
+}
+```
