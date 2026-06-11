@@ -27,7 +27,7 @@ GS-Playground is a high-throughput photorealistic simulation framework for visio
 - **High-throughput perception:** The paper reports up to `10^4` FPS at `640 x 480` resolution with batch rendering and memory-efficient 3DGS assets.
 - **Rigid-Link Gaussian Kinematics:** 3DGS clusters are bound to simulator rigid bodies for temporally consistent robot and object motion.
 - **Parallel physics engine:** A velocity-impulse solver designed for stable contact-rich robot tasks and large time steps.
-- **Real2Sim asset workflow:** A pipeline for reconstructing photorealistic, physically consistent, memory-efficient scenes from real captures.
+- **Real2Sim asset workflow:** [GS-Real2Sim](https://github.com/discoverse-dev/gs-real2sim) reconstructs photorealistic, physically consistent, memory-efficient assets from real captures.
 - **Multi-embodiment scope:** Experiments cover locomotion, navigation, and manipulation, including quadrupeds, humanoids, and robot arms.
 
 ## 🗺️ Release Plan
@@ -38,7 +38,8 @@ The paper system is larger than this preview repository. Planned releases:
 - [x] Batch 3DGS renderer kernels, pruning utilities, memory-efficient asset loading, and multi-scene batching examples, [GaussianRenderer](https://github.com/discoverse-dev/GaussianRenderer) .
 - [x] Benchmark suite for [rendering throughput](#batch-rendering-benchmark), [physics stability](https://github.com/Motphys/phys-bench), [locomotion experiments](https://github.com/Motphys/MotrixLab) from the RSS 2026 paper.
 - [x] Sensor modules for [batch LiDAR examples](https://github.com/discoverse-dev/MuJoCo-LiDAR) (mesh temporary).
-- [ ] Real2Sim tools for scene/object segmentation, inpainting, 3DGS/mesh reconstruction, pose alignment, collision synchronization, and asset packaging.
+- [x] Real2Sim pipeline released in [GS-Real2Sim](https://github.com/discoverse-dev/gs-real2sim).
+- [ ] Full GS-Playground integration for Real2Sim asset packaging, collision synchronization, and end-to-end scene import.
 - [ ] PPO and visual policy training scripts for vision-centric navigation and manipulation.
 - [ ] Hugging Face release with compressed 3DGS assets, example scenes, robot assets, trained policies, and evaluation traces.
 
@@ -92,6 +93,10 @@ uv run jupyter nbconvert \
   --output mtx_batch_minimal.executed.ipynb
 ```
 
+### Real2Sim Pipeline
+
+The Real2Sim pipeline is maintained in [discoverse-dev/gs-real2sim](https://github.com/discoverse-dev/gs-real2sim). See that repository for installation, checkpoints, and usage.
+
 ### Optional Jupyter Kernel
 
 ```bash
@@ -108,6 +113,7 @@ GS-Playground builds on several components and prior systems from our ecosystem.
 - **Physics simulator:** [MotrixSim](https://github.com/Motphys/motrixsim-docs) provides the robot physics backend behind the high-throughput contact-rich simulation stack.
 - **State-based RL:** [MotrixLab](https://github.com/Motphys/MotrixLab) contains state-based reinforcement learning infrastructure that will be connected to the GS-Playground training pipeline.
 - **RLGK rendering:** [GaussianRenderer](https://github.com/discoverse-dev/GaussianRenderer) includes the Gaussian rendering components related to Rigid-Link Gaussian Kinematics.
+- **Real2Sim pipeline:** [GS-Real2Sim](https://github.com/discoverse-dev/gs-real2sim) hosts the open-source real-image-to-3D-assets pipeline used to prepare GS-Playground-style scenes and objects.
 - **Batch LiDAR:** [MuJoCo-LiDAR](https://github.com/discoverse-dev/MuJoCo-LiDAR) is our earlier batch LiDAR module; the GS-Playground sensor suite will integrate this line of work for navigation and locomotion tasks.
 - **Previous-generation platform:** [DISCOVERSE](https://github.com/discoverse-dev/discoverse/) is our earlier embodied simulation platform. GS-Playground can be viewed as a next-generation, photorealistic and high-throughput successor to DISCOVERSE.
 

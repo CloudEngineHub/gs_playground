@@ -27,7 +27,7 @@ GS-Playground 是面向视觉机器人学习的高吞吐、高保真仿真框架
 - **高吞吐感知：** 论文中报告系统在 `640 x 480` 分辨率下通过批量渲染和内存高效 3DGS 资产达到最高 `10^4` FPS。
 - **Rigid-Link Gaussian Kinematics：** 将 3DGS 点云簇绑定到仿真刚体，保证机器人和物体运动时的时间一致性。
 - **并行物理引擎：** 基于 velocity-impulse formulation 的稳定接触求解器，支持 contact-rich 任务和大步长仿真。
-- **Real2Sim 资产流程：** 从真实采集生成照片级、物理一致、内存高效的仿真资产。
+- **Real2Sim 资产流程：** [GS-Real2Sim](https://github.com/discoverse-dev/gs-real2sim) 从真实采集生成照片级、物理一致、内存高效的仿真资产。
 - **多构型机器人覆盖：** 论文实验覆盖 locomotion、navigation 和 manipulation，包括四足、人形和机械臂。
 
 ## 🗺️ Release 计划
@@ -38,7 +38,8 @@ GS-Playground 是面向视觉机器人学习的高吞吐、高保真仿真框架
 - [x] Batch 3DGS renderer kernel、剪枝工具、内存高效资产加载和多场景 batch 示例，[GaussianRenderer](https://github.com/discoverse-dev/GaussianRenderer)。
 - [x] RSS 2026 论文中的 [rendering throughput](#batch-rendering-benchmark)、[physics stability](https://github.com/Motphys/phys-bench)、[locomotion experiments](https://github.com/Motphys/MotrixLab) benchmark suite。
 - [x] [batch LiDAR 示例](https://github.com/discoverse-dev/MuJoCo-LiDAR)传感器模块（mesh temporary）。
-- [ ] Real2Sim 工具：场景/物体分割、inpainting、3DGS/mesh 重建、位姿对齐、碰撞同步和资产打包。
+- [x] Real2Sim pipeline 已在 [GS-Real2Sim](https://github.com/discoverse-dev/gs-real2sim) 开源。
+- [ ] Real2Sim 资产打包、碰撞同步和端到端场景导入与 GS-Playground 的完整集成。
 - [ ] 面向视觉中心导航和操作的 PPO 与视觉策略训练脚本。
 - [ ] Hugging Face 发布：压缩 3DGS 资产、示例场景、机器人资产、训练策略和评测轨迹。
 
@@ -91,6 +92,10 @@ uv run jupyter nbconvert \
   --output mtx_batch_minimal.executed.ipynb
 ```
 
+### Real2Sim Pipeline
+
+Real2Sim pipeline 维护在 [discoverse-dev/gs-real2sim](https://github.com/discoverse-dev/gs-real2sim)。安装、checkpoint 和使用方式请参考该仓库。
+
 ### 可选 Jupyter Kernel
 
 ```bash
@@ -107,6 +112,7 @@ GS-Playground 建立在我们生态中的多个组件和前序系统之上。它
 - **物理仿真器：** [MotrixSim](https://github.com/Motphys/motrixsim-docs) 是高吞吐、接触丰富机器人仿真栈背后的物理后端。
 - **State-based RL：** [MotrixLab](https://github.com/Motphys/MotrixLab) 包含 state-based reinforcement learning 基础设施，后续会与 GS-Playground 训练流水线连接。
 - **RLGK 渲染：** [GaussianRenderer](https://github.com/discoverse-dev/GaussianRenderer) 包含与 Rigid-Link Gaussian Kinematics 相关的 Gaussian rendering 组件。
+- **Real2Sim 流水线：** [GS-Real2Sim](https://github.com/discoverse-dev/gs-real2sim) 承载已开源的 real-image-to-3D-assets 流水线，用于准备 GS-Playground 风格的场景和物体资产。
 - **Batch LiDAR：** [MuJoCo-LiDAR](https://github.com/discoverse-dev/MuJoCo-LiDAR) 是我们此前的 batch LiDAR 模块；GS-Playground 的传感器套件会沿着这条工作整合到 navigation 和 locomotion 任务中。
 - **上一代平台：** [DISCOVERSE](https://github.com/discoverse-dev/discoverse/) 是我们此前的具身仿真平台。GS-Playground 可以看作 DISCOVERSE 的下一代高保真、高吞吐版本。
 
